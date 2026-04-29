@@ -27,7 +27,7 @@
     }
     *{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
-    body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden;cursor:none;}
+    body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden;}
 
     /* ── CURSOR ── */
     #cursorDot{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--v2);pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:screen;}
@@ -35,7 +35,7 @@
     #cursorCanvas{position:fixed;inset:0;z-index:99997;pointer-events:none;}
 
     /* ── BLOBS ── */
-    .blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.18;pointer-events:none;z-index:0;}
+    .blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.08;pointer-events:none;z-index:0;}
     .b1{width:600px;height:600px;background:var(--v1);top:-10%;left:-10%;animation:morph1 14s ease-in-out infinite;}
     .b2{width:500px;height:500px;background:var(--pk2);bottom:-10%;right:-5%;animation:morph2 16s ease-in-out infinite;}
     .b3{width:400px;height:400px;background:var(--cy);top:40%;left:50%;transform:translateX(-50%);animation:morph3 18s ease-in-out infinite;}
@@ -216,7 +216,7 @@
     .reveal.visible{opacity:1;transform:translateY(0);}
 
     /* ── RESPONSIVE ── */
-    @media(max-width:900px){.gallery-grid{columns:2;}}
+    body.menu-open { overflow: hidden; } @media(max-width:900px){.gallery-grid{columns:2;}}
     @media(max-width:600px){
       .gallery-grid{columns:1;}
       .hamburger{display:flex;}
@@ -465,7 +465,7 @@
   <!-- CONTACT FORM -->
   <div class="contact-form-wrap reveal">
     <p class="form-divider">&#8212; or fill out the form below &#8212;</p>
-     <form id="contact-form">
+     <form action="https://formspree.io/f/dravexstudio@gmail.com" method="POST">
       <div class="form-row">
         <div class="form-group">
           <label for="fname">Your Name</label>
@@ -511,30 +511,6 @@
     </form>
   </div>
 </div>
-  <script>
-    
-const form = document.getElementById("contact-form");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const data = {
-    name: form.name.value,
-    email: form.email.value,
-    service: form.service.value,
-    budget: form.budget.value,
-    message: form.message.value
-  };
-
-  await fetch("4hfpiaa9rbzyq49d4wz88o4vbmctcgct@hook.eu1.make.com", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
-
-  alert("Request sent!");
-});
-</script>
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
@@ -684,8 +660,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
 document.querySelectorAll('.gallery-item img').forEach(img=>{img.parentElement.addEventListener('click',()=>openLightbox(img.src));});
 
 /* ═══ MOBILE MENU ═══ */
-function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');document.getElementById('hamburger').classList.toggle('open');}
-function closeMenu(){document.getElementById('navLinks').classList.remove('open');document.getElementById('hamburger').classList.remove('open');}
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');document.getElementById('hamburger').classList.toggle('open');document.body.classList.toggle('menu-open');}
+function closeMenu(){document.getElementById('navLinks').classList.remove('open');document.getElementById('hamburger').classList.remove('open');document.body.classList.remove('menu-open');}
 </script>
 </body>
 </html>
