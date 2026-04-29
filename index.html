@@ -179,6 +179,139 @@
     .ccard p{color:var(--text-light);font-size:.88rem;font-weight:600;}
     .chint{font-size:.78rem;margin-top:.7rem;font-weight:800;display:block;background:linear-gradient(90deg,var(--v2),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
+    /* CONTACT FORM */
+.contact {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+.contact h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #f0eaff 0%, #a855f7 50%, #e879f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.contact > p {
+    text-align: center;
+    color: #8b7db8;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.contact-form:hover {
+    border-color: rgba(168, 85, 247, 0.35);
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.25), 0 0 30px rgba(232, 121, 249, 0.1);
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    margin-bottom: 0.7rem;
+    font-weight: 700;
+    color: #a855f7;
+    font-family: 'Syne', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.78rem;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 12px;
+    color: #f0eaff;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: rgba(168, 85, 247, 0.5);
+    background: rgba(168, 85, 247, 0.06);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #8b7db8;
+}
+.form-group select {
+    cursor: pointer;
+    background: rgba(255,255,255,0.04) url('data:image/svg+xml;utf8,<svg fill="%23a855f7" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    padding-right: 30px;
+    appearance: none;
+    border-radius: 12px;
+}
+.form-group select option {
+    background: #04020f;
+    color: #f0eaff;
+}
+.submit-btn {
+    padding: 1.05rem;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    font-weight: 700;
+    cursor: none;
+    transition: all 0.35s ease;
+    font-family: 'Syne', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.45);
+}
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #ec4899, #7c3aed);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.submit-btn:hover::before {
+    opacity: 1;
+}
+.submit-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 60px rgba(232, 121, 249, 0.5), 0 0 100px rgba(124, 58, 237, 0.3);
+}
+.submit-btn span {
+    position: relative;
+    z-index: 1;
+}
+    
     /* ── FOOTER ── */
     footer{text-align:center;padding:3rem 2rem;border-top:1px solid rgba(168,85,247,.12);position:relative;z-index:2;}
     .flogo{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;margin-bottom:.4rem;background:linear-gradient(135deg,var(--v2),var(--pk),var(--cy));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -440,12 +573,6 @@
       <h3>Discord</h3>
       <p>dravex_studio</p>
       <span class="chint">→ Message me directly</span>
-    </a>
-    <a href="mailto:dravexstudio@gmail.com" class="gc ccard reveal">
-      <div class="ccard-icon ci-em">✉️</div>
-      <h3>Email</h3>
-      <p>dravexstudio@gmail.com</p>
-      <span class="chint">→ For detailed inquiries</span>
     </a>
   </div>
 </div>
