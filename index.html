@@ -465,7 +465,7 @@
   <!-- CONTACT FORM -->
   <div class="contact-form-wrap reveal">
     <p class="form-divider">&#8212; or fill out the form below &#8212;</p>
-    <form class="contact-form" action="https://formspree.io/f/dravexstudio@gmail.com" method="POST">
+     <form id="contact-form">
       <div class="form-row">
         <div class="form-group">
           <label for="fname">Your Name</label>
@@ -511,6 +511,30 @@
     </form>
   </div>
 </div>
+  <script>
+    
+const form = document.getElementById("contact-form");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    service: form.service.value,
+    budget: form.budget.value,
+    message: form.message.value
+  };
+
+  await fetch("4hfpiaa9rbzyq49d4wz88o4vbmctcgct@hook.eu1.make.com", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  alert("Request sent!");
+});
+</script>
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
@@ -637,7 +661,7 @@ document.querySelectorAll('.gc').forEach(card=>{
   });
   card.addEventListener('mouseleave',()=>{card.style.transform='';});
 });
-
+A
 /* ═══ PRICING TABS ═══ */
 function switchTab(tab){
   document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
